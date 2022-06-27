@@ -1,4 +1,4 @@
-const dataCsvInput = require("fs").readFileSync("./input/halUg.csv", "utf8")
+const dataCsvInput = require("fs").readFileSync("./input/prevsol.csv", "utf8")
 
 const lineBreak = dataCsvInput.split("\n")
 
