@@ -1,4 +1,4 @@
-const dataCsvInput = require("fs").readFileSync("./input/ZOTEROCSV.csv", "utf8")
+const dataCsvInput = require("fs").readFileSync("./input/halUg.csv", "utf8")
 
 const lineBreak = dataCsvInput.split("\n")
 
@@ -72,6 +72,9 @@ const uniqueDocument = Array.from(new Set(data.map(document => document.title)))
 
 // Create JSON file
 
+const date = new Date();
+let month = date.getMonth() + 1
+let fileName = 'db' + date.getFullYear() + month + date.getDate() + date.getHours() + date.getMinutes() + '.json'
 const documents = { documents: uniqueDocument }
 let datas = JSON.stringify(documents)
-require("fs").writeFileSync('./output/db.json', datas)
+require("fs").writeFileSync(`./output/${fileName}`, datas)
